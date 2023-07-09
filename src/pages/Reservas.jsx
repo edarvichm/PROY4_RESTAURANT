@@ -8,8 +8,7 @@ const ReservasPage = ({ menu }) => {
   // const ReservasPage = () => {
   return (
     <>
-      <FormReservas />
-      {menu}
+      <FormReservas tipo={menu} />
     </>
   );
 };

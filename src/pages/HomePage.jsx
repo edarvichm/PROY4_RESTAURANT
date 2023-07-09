@@ -1,6 +1,6 @@
 // import React from 'react'
 
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import FormContact from "../components/FormContact";
 // import rPage from "../pages/reservas";
 
@@ -9,12 +9,13 @@ const HomePage = () => {
     <>
       <div className="h5">Carta</div>
       <div className="d-grid gap-2 col-6 mx-auto">
-        <NavLink className="btn btn-primary" to="/Carta">
+        <Link className="btn btn-primary" to="/Carta">
           Ver Carta
-        </NavLink>
+        </Link>
       </div>
-      <div className="h5 mt-3">Horarios</div>
+      <div className="h5 mt-3">Dirección y Horarios</div>
       <div className="h6">Sábado: 12:30 - 17:00 y Domingo: 12:30 - 17:00</div>
+      <div className="h6">Av. Italia 1853 Local 5, Ñuñoa, Chile</div>
       <div className="h5 mt-3">Servicios</div>
       <div className="card mt-3">
         {/* <img src="..." className="card-img-top" alt="..." /> */}
@@ -29,9 +30,9 @@ const HomePage = () => {
             ver carta - Sin tiempo determinado
           </div>
           <div className="d-grid gap-2 col-6 mx-auto">
-            <NavLink className="btn btn-primary" to="/Reservas">
+            <Link className="btn btn-primary" to="/Reservas">
               Reservar
-            </NavLink>
+            </Link>
           </div>
         </div>
       </div>
@@ -44,11 +45,13 @@ const HomePage = () => {
             Elige una entrada, un plato de fondo y postres clásicos de Francia.
           </p>
           <hr className="border border-1 opacity-75" />
-          <div className="fs-6 fw-light text-center">$25.000 - 25 minutos</div>
+          <div className="fs-6 fw-light text-center">
+            💰$25.000 - ⌛25 minutos
+          </div>
           <div className="d-grid gap-2 col-6 mx-auto">
-            <NavLink className="btn btn-primary" to="/Reservas">
+            <Link className="btn btn-primary" to="/Reservas">
               Reservar
-            </NavLink>
+            </Link>
           </div>
         </div>
       </div>
@@ -63,15 +66,17 @@ const HomePage = () => {
           </p>
           <hr className="border border-1 opacity-75" />
           {/* <div><FontAwesomeIcon icon={faSackDollar} bounce style={{color: "#dfcb4e",}} /></div> */}
-          <div className="fs-6 fw-light text-center">$35.000 - 45 minutos</div>
+          <div className="fs-6 fw-light text-center">
+            💰$35.000 - ⌛45 minutos
+          </div>
           <div className="d-grid gap-2 col-6 mx-auto">
-            <NavLink className="btn btn-primary" to="/Reservas">
+            <Link className="btn btn-primary" to="/Reservas">
               Reservar
-            </NavLink>
+            </Link>
           </div>
         </div>
       </div>
-      <div className="container">
+      <div className="container mt-3">
         <FormContact />
       </div>
     </>
