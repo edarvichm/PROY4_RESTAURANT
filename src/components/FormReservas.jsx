@@ -53,6 +53,7 @@ const FormReservas = ({ menu }) => {
             Nunca compatiremos tu email con nadie.
           </div>
         </div>
+
         {/* <div className="App">
           <Calendario />
         </div> */}
@@ -70,6 +71,7 @@ const FormReservas = ({ menu }) => {
             // min={console.log(new Date().toISOString().split("T")[0])}
             // max={console.log(new Date().toISOString().split("T")[0])}
           />
+
         </div>
         <div className="mb-3"></div>
         <div className="mb-3">
