@@ -23,6 +23,25 @@ const FormReservas = (props) => {
             Nunca compatiremos tu email con nadie.
           </div>
         </div>
+        <div className="mb-3">
+          <label className="form-label">Fecha</label>
+          <input type="date" className="form-control" id="InputFecha" />
+        </div>
+        <div className="mb-3"></div>
+        <div className="mb-3">
+          <label className="form-label">hora</label>
+          <input type="time" className="form-control" id="Inputtime" />
+        </div>
+        <div className="mb-3"></div>
+        <div className="mb-3">
+          <select className="form-select" aria-label="Default select example">
+            <option selected>Selecciona el tipo de menú </option>
+            <option value="1">A la carta</option>
+            <option value="2">Menú de 3 tiempos</option>
+            <option value="3">Menú de 5 tiempos</option>
+          </select>
+        </div>
+        <div className="mb-3"></div>
         <div className="mb-3 form-check">
           <input
             type="checkbox"
