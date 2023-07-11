@@ -3,6 +3,7 @@
 // import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useState } from "react";
+import Calendario from "./Calendario";
 
 const FormReservas = ({ menu }) => {
   // useState confirmar fechas disponibles
@@ -18,7 +19,20 @@ const FormReservas = ({ menu }) => {
     setSeleccion(event.target.value);
   };
 
-  // console.log(menu, "recibido por props");
+  const nextWeekend = () => {
+    var today = new Date();
+    var nextSaturday = new Date();
+    var nextSunday = new Date();
+    nextSaturday.setDate(today.getDate() + ((5 - today.getDay()) % 7) + 1);
+    nextSunday.setDate(today.getDate() + ((6 - today.getDay()) % 7) + 1);
+    console.log(nextSaturday.toISOString().split("T")[0]);
+    console.log(nextSunday.toISOString().split("T")[0]);
+    if (nextSaturday >= today) return nextSaturday.toISOString().split("T")[0];
+    else return nextSunday.toISOString().split("T")[0];
+
+    // return nextSaturday.toISOString().split("T")[0];
+  };
+
   return (
     <>
       <div className="h5">Formulario de Reservas</div>
@@ -39,6 +53,9 @@ const FormReservas = ({ menu }) => {
             Nunca compatiremos tu email con nadie.
           </div>
         </div>
+        {/* <div className="App">
+          <Calendario />
+        </div> */}
         <div className="mb-3">
           <label className="form-label">Fecha</label>
           <input
@@ -47,6 +64,11 @@ const FormReservas = ({ menu }) => {
             id="InputFecha"
             onChange={consultarHoras}
             // onChange={(e) => setSelectedDate(e.target.value)
+            value={nextWeekend()}
+            //date min next saturday max next sunday
+
+            // min={console.log(new Date().toISOString().split("T")[0])}
+            // max={console.log(new Date().toISOString().split("T")[0])}
           />
         </div>
         <div className="mb-3"></div>
