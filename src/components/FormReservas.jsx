@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from "react";
+// import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useState } from "react";
 
 const FormReservas = ({ menu }) => {
   // useState confirmar fechas disponibles
+  const [seleccion, setSeleccion] = useState(menu);
   const [selectedDate, setSelectedDate] = useState("");
 
   const consultarHoras = (event) => {
@@ -13,7 +14,11 @@ const FormReservas = ({ menu }) => {
     setSelectedDate(event.target.value);
   };
 
-  console.log(menu, "recibido por props");
+  const handleChangeTipoMenu = (event) => {
+    setSeleccion(event.target.value);
+  };
+
+  // console.log(menu, "recibido por props");
   return (
     <>
       <div className="h5">Formulario de Reservas</div>
@@ -51,12 +56,26 @@ const FormReservas = ({ menu }) => {
         </div>
         <div className="mb-3"></div>
         <div className="mb-3">
-          <select className="form-select" aria-label="Default select example">
+          <select
+            className="form-select"
+            aria-label="Default select example"
+            value={seleccion}
+            readOnly
+            onChange={handleChangeTipoMenu}
+          >
             {/* {menu == "#3tiempos" ? "" : ""} */}
-            <option defaultValue>Selecciona el tipo de menú </option>
-            <option value="1">A la carta</option>
-            <option value="2">Menú de 3 tiempos</option>
-            <option value="3">Menú de 5 tiempos</option>
+            <option id="dv" defaultValue>
+              Selecciona el tipo de menú{" "}
+            </option>
+            <option id="aC" value="#alacarta">
+              A la carta
+            </option>
+            <option id="3t" value="#3tiempos">
+              Menú de 3 tiempos
+            </option>
+            <option id="5t" value="#5tiempos">
+              Menú de 5 tiempos
+            </option>
           </select>
         </div>
         <div className="mb-3"></div>
