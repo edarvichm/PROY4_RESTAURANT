@@ -11,7 +11,7 @@ const FormReservas = ({ menu }) => {
   const [selectedDate, setSelectedDate] = useState("");
 
   const consultarHoras = (event) => {
-    console.log(event);
+    // console.log(event);
     setSelectedDate(event.target.value);
   };
 
