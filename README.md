@@ -31,8 +31,8 @@ La aplicación web cumple con los siguientes requisitos mínimos:
 1. Clona este repositorio en tu máquina local.
 2. Abre una terminal y navega hasta el directorio raíz del proyecto.
 3. Ejecuta el comando `npm install` para instalar las dependencias del proyecto.
-4. Ejecuta el comando `npm start` para iniciar el servidor de desarrollo.
-5. Abre tu navegador web y visita la dirección `http://localhost:3000` para ver la aplicación en funcionamiento.
+4. Ejecuta el comando `npm run dev` para iniciar el servidor de desarrollo.
+5. Abre tu navegador web y visita la dirección `http://localhost:3000` para ver la aplicación en funcionamiento, se debe verificar el puerto local abierto, será indicado en el mensaje en consola.
 
 ## Contribuciones
 
