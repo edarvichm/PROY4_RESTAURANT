@@ -1,6 +1,6 @@
 // import React from 'react'
 
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 // export const NavBar = ({ navHeight }) => {
 export const NavBar = () => {
@@ -10,15 +10,15 @@ export const NavBar = () => {
       {/* {() => navHeight(200)} */}
       <nav id="navbar" className="navbar  bg-body-tertiary fixed-top">
         <div className="container-fluid">
-          <a className="navbar-brand" to="#">
+          <Link className="navbar-brand" to="/">
             <img
               src="/img/Logosf.svg"
-              alt=""
+              alt="Home"
               width="354"
               height="123"
               className="d-inline-block align-text-top"
             />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
