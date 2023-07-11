@@ -25,8 +25,8 @@ const FormReservas = ({ menu }) => {
     var nextSunday = new Date();
     nextSaturday.setDate(today.getDate() + ((5 - today.getDay()) % 7) + 1);
     nextSunday.setDate(today.getDate() + ((6 - today.getDay()) % 7) + 1);
-    console.log(nextSaturday.toISOString().split("T")[0]);
-    console.log(nextSunday.toISOString().split("T")[0]);
+    // console.log(nextSaturday.toISOString().split("T")[0]);
+    // console.log(nextSunday.toISOString().split("T")[0]);
     if (nextSaturday >= today) return nextSaturday.toISOString().split("T")[0];
     else return nextSunday.toISOString().split("T")[0];
 
@@ -71,7 +71,6 @@ const FormReservas = ({ menu }) => {
             // min={console.log(new Date().toISOString().split("T")[0])}
             // max={console.log(new Date().toISOString().split("T")[0])}
           />
-
         </div>
         <div className="mb-3"></div>
         <div className="mb-3">
