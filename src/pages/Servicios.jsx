@@ -18,7 +18,7 @@ export const Servicios = () => {
             ver carta - Sin tiempo determinado
           </div>
           <div className="d-grid gap-2 col-6 mx-auto">
-            <Link className="btn btn-primary" to="/Reservas">
+            <Link className="btn btn-primary" to="/Reservas#alacarta">
               Reservar
             </Link>
           </div>
@@ -37,7 +37,7 @@ export const Servicios = () => {
             💰$25.000 - ⌛25 minutos
           </div>
           <div className="d-grid gap-2 col-6 mx-auto">
-            <Link className="btn btn-primary" to="/Reservas">
+            <Link className="btn btn-primary" to="/Reservas#3tiempos">
               Reservar
             </Link>
           </div>
@@ -58,7 +58,7 @@ export const Servicios = () => {
             💰$35.000 - ⌛45 minutos
           </div>
           <div className="d-grid gap-2 col-6 mx-auto">
-            <Link className="btn btn-primary" to="/Reservas">
+            <Link className="btn btn-primary" to="/Reservas#5tiempos">
               Reservar
             </Link>
           </div>

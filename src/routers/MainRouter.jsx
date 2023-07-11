@@ -8,7 +8,7 @@ export const MainRoutes = () => {
     <div className="container">
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/reservas" element={<ReservasPage menu={"menu1"} />} />
+        <Route path="/reservas" element={<ReservasPage />} />
         {/* <Route path="/reservas" element={<ReservasPage />} /> */}
         <Route path="/carta" element={<Carta />} />
         {/* <Route path='usuarios' element={<UsuariosPage />} /> */}

@@ -1,8 +1,19 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
 import PropTypes from "prop-types";
+import { useState } from "react";
 
-const FormReservas = (props) => {
+const FormReservas = ({ menu }) => {
+  // useState confirmar fechas disponibles
+  const [selectedDate, setSelectedDate] = useState("");
+
+  const consultarHoras = (event) => {
+    console.log(event);
+    setSelectedDate(event.target.value);
+  };
+
+  console.log(menu, "recibido por props");
   return (
     <>
       <div className="h5">Formulario de Reservas</div>
@@ -25,7 +36,13 @@ const FormReservas = (props) => {
         </div>
         <div className="mb-3">
           <label className="form-label">Fecha</label>
-          <input type="date" className="form-control" id="InputFecha" />
+          <input
+            type="date"
+            className="form-control"
+            id="InputFecha"
+            onChange={consultarHoras}
+            // onChange={(e) => setSelectedDate(e.target.value)
+          />
         </div>
         <div className="mb-3"></div>
         <div className="mb-3">
@@ -35,7 +52,8 @@ const FormReservas = (props) => {
         <div className="mb-3"></div>
         <div className="mb-3">
           <select className="form-select" aria-label="Default select example">
-            <option selected>Selecciona el tipo de menú </option>
+            {/* {menu == "#3tiempos" ? "" : ""} */}
+            <option defaultValue>Selecciona el tipo de menú </option>
             <option value="1">A la carta</option>
             <option value="2">Menú de 3 tiempos</option>
             <option value="3">Menú de 5 tiempos</option>
@@ -54,10 +72,9 @@ const FormReservas = (props) => {
           Enviar
         </button>
       </form>
+      <h3 hidden>{selectedDate}</h3>
     </>
   );
 };
-
-FormReservas.propTypes = {};
 
 export default FormReservas;
