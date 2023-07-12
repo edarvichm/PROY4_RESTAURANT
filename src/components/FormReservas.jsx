@@ -4,6 +4,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import Calendario from "./Calendario";
+import { toast } from "react-toastify";
 import { db } from "../firebase/firebase.js";
 
 const FormReservas = ({ menu }) => {
@@ -22,8 +23,20 @@ const FormReservas = ({ menu }) => {
   const guardarDatos = async (e) => {
     e.preventDefault();
     // consultarHoras(e.target.value:datos.hora);
-    await db.collection("reservas").add(datos);
-    console.log("informacion enviada a la base de datos");
+    try {
+      await db.collection("reservas").add(datos);
+      toast("Reserva enviada con éxito, se enviará confirmación", {
+        type: "success",
+        autoClose: 5000,
+        position: "bottom-center",
+      });
+    } catch (error) {
+      toast("Error al enviar la reserva", {
+        type: "error",
+        autoClose: 5000,
+        position: "bottom-center",
+      });
+    }
   };
   // useState confirmar fechas disponibles
   const [seleccion, setSeleccion] = useState(menu);

@@ -3,6 +3,8 @@
 import { NavBar } from "./components/NavBar";
 // import HomePage from './pages/HomePage'
 import { MainRoutes } from "./routers/MainRouter";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   // Calcula el tamaño del navbar dinámicamente
@@ -27,6 +29,7 @@ function App() {
       <div className="container" style={{ marginTop: 200 }}>
         <MainRoutes />
       </div>
+      <ToastContainer />
     </>
   );
 }
