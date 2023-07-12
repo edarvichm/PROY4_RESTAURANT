@@ -4,8 +4,27 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import Calendario from "./Calendario";
+import { db } from "../firebase/firebase.js";
 
 const FormReservas = ({ menu }) => {
+  // useState para guardar los datos del formulario
+  const [datos, setDatos] = useState({
+    nombre: "",
+    telefono: "",
+    email: "",
+    personas: "",
+    fecha: "",
+    hora: "",
+    menu: "",
+    observaciones: "",
+  });
+
+  const guardarDatos = async (e) => {
+    e.preventDefault();
+    // consultarHoras(e.target.value:datos.hora);
+    await db.collection("reservas").add(datos);
+    console.log("informacion enviada a la base de datos");
+  };
   // useState confirmar fechas disponibles
   const [seleccion, setSeleccion] = useState(menu);
   const [selectedDate, setSelectedDate] = useState("");
@@ -17,6 +36,14 @@ const FormReservas = ({ menu }) => {
 
   const handleChangeTipoMenu = (event) => {
     setSeleccion(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const handleChange = (event) => {
+    setDatos({
+      ...datos,
+      [event.target.name]: event.target.value,
+    });
   };
 
   const nextWeekend = () => {
@@ -36,10 +63,27 @@ const FormReservas = ({ menu }) => {
   return (
     <>
       <div className="h5">Formulario de Reservas</div>
-      <form>
+      <form onSubmit={guardarDatos}>
         <div className="mb-3">
           <label className="form-label">Nombre</label>
-          <input type="text" className="form-control" id="InputName" />
+          <input
+            type="text"
+            className="form-control"
+            name="nombre"
+            id="InputName"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Número de Teléfono</label>
+          <input
+            type="tel"
+            id="phone"
+            name="telefono"
+            pattern="[6-9]{1}[0-9]{4}[0-9]{4}"
+            required
+            onChange={handleChange}
+          />
         </div>
         <div className="mb-3">
           <label className="form-label">Correo Electrónico</label>
@@ -47,11 +91,24 @@ const FormReservas = ({ menu }) => {
             type="email"
             className="form-control"
             id="exampleInputEmail1"
+            name="email"
             aria-describedby="emailHelp"
+            onChange={handleChange}
           />
           <div id="emailHelp" className="form-text">
             Nunca compatiremos tu email con nadie.
           </div>
+        </div>
+        <div className="mb-3">
+          <label className="form-label">N° Personas</label>
+          <input
+            type="number"
+            id="personas"
+            name="personas"
+            min="1"
+            max="100"
+            onChange={handleChange}
+          />
         </div>
 
         {/* <div className="App">
@@ -61,11 +118,12 @@ const FormReservas = ({ menu }) => {
           <label className="form-label">Fecha</label>
           <input
             type="date"
+            name="fecha"
             className="form-control"
             id="InputFecha"
-            onChange={consultarHoras}
+            onChange={handleChange}
             // onChange={(e) => setSelectedDate(e.target.value)
-            value={nextWeekend()}
+            // value={nextWeekend()}
             //date min next saturday max next sunday
 
             // min={console.log(new Date().toISOString().split("T")[0])}
@@ -75,16 +133,25 @@ const FormReservas = ({ menu }) => {
         <div className="mb-3"></div>
         <div className="mb-3">
           <label className="form-label">hora</label>
-          <input type="time" className="form-control" id="Inputtime" />
+          <input
+            type="time"
+            className="form-control"
+            name="hora"
+            id="Inputtime"
+            onChange={handleChange}
+            onChangeCapture={consultarHoras}
+          />
         </div>
         <div className="mb-3"></div>
         <div className="mb-3">
           <select
             className="form-select"
             aria-label="Default select example"
+            name="menu"
             value={seleccion}
             readOnly
-            onChange={handleChangeTipoMenu}
+            onChange={handleChange}
+            onChangeCapture={handleChangeTipoMenu}
           >
             {/* {menu == "#3tiempos" ? "" : ""} */}
             <option id="dv" defaultValue>
@@ -101,14 +168,14 @@ const FormReservas = ({ menu }) => {
             </option>
           </select>
         </div>
-        <div className="mb-3"></div>
-        <div className="mb-3 form-check">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="exampleCheck1"
-          />
-          <label className="form-check-label">Check me out</label>
+        <div className="input-group mb-3">
+          <span className="form-label">Comentario</span>
+          <textarea
+            className="form-control"
+            name="observaciones"
+            aria-label="With textarea"
+            onChange={handleChange}
+          ></textarea>
         </div>
         <button type="submit" className="btn btn-primary">
           Enviar
