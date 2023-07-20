@@ -1,5 +1,6 @@
 // import { useState } from "react";
 // import './App.css'
+import { Footer } from "./components/Footer";
 import { NavBar } from "./components/NavBar";
 // import HomePage from './pages/HomePage'
 import { MainRoutes } from "./routers/MainRouter";
@@ -30,6 +31,9 @@ function App() {
         <MainRoutes />
       </div>
       <ToastContainer />
+      <div className="container">
+        <Footer />
+      </div>
     </>
   );
 }
